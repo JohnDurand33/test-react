@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Post from "./Post";
 
-
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 export default class Feed extends Component {
     constructor() {
         super();
@@ -15,7 +15,7 @@ export default class Feed extends Component {
     }
 
     getPosts = async () => {
-        const res = await fetch('http://localhost:5000/api/posts');
+        const res = await fetch(BACKEND_URL + '/api/posts');
         if (!res.ok) {
             throw new Error("Network response was not ok");
         }

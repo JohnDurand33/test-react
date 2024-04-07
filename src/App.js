@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import Home from "./Home";
 import Navbar from "./Navbar";
-import News from './News';
 import Feed from './Feed';
 // rafc
 //In function version below, WHAT IS RETURNED IS WHAT IS RENDERED (Check Home.jpx for difference)
