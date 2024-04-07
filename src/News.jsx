@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Post from './Post'
+import Article from './Article'
 
 export default class News extends Component {
 	constructor() {
@@ -18,13 +18,13 @@ export default class News extends Component {
         const data = await res.json();
         if (data.status === 'ok'){
             this.setState({
-                articles: data.articles
+                articles: data.articles // this is based on the API data returned.  'articles' is a key inside the initial data JSON object returned
             })
         }
     };
 
     showArticles = () => {
-        return this.state.articles.map((a, index) => <Post key={index} article={a}/>)
+        return this.state.articles.map((a, index) => <Article key={index} article={a}/>)
     }
 
 	render(props) {

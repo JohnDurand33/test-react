@@ -5,7 +5,7 @@ import App from './App';      //only one default export syntax per file (i.e. im
 
 const root = ReactDOM.createRoot(document.getElementById("root")); // Need to append to actually render
 root.render(
-	// <React.StrictMode>
-		<App />
+    // <React.StrictMode>
+    <App />
 	// </React.StrictMode>
 );
