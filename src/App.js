@@ -2,6 +2,7 @@ import { Component } from 'react'
 import Home from "./Home";
 import Navbar from "./Navbar";
 import News from './News';
+import Feed from './Feed';
 // rafc
 //In function version below, WHAT IS RETURNED IS WHAT IS RENDERED (Check Home.jpx for difference)
 // think of app as your base.html file
@@ -22,9 +23,13 @@ class App extends Component {
         <div className="App">
             <Navbar user={this.state.user} x='hi'/>
 
-            <Home user={this.state.user} x='hi'/>
+            <Home user={this.state.user} x='hi' />
+                
+            <Feed />
+                
 
-            <News user={this.state.user} x='hi'/>
+
+            {/* <News user={this.state.user} x='hi'/> */}
 
         </div>
         );
