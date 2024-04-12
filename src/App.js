@@ -2,6 +2,9 @@ import { Component } from 'react'
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Feed from './Feed';
+import Footer from './Footer';
+
+
 // rafc
 //In function version below, WHAT IS RETURNED IS WHAT IS RENDERED (Check Home.jpx for difference)
 // think of app as your base.html file
@@ -26,7 +29,7 @@ class App extends Component {
                 
             <Feed />
                 
-
+            <Footer />
 
             {/* <News user={this.state.user} x='hi'/> */}
 

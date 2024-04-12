@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Post from "./Post";
 
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 export default class Feed extends Component {
     constructor() {
@@ -10,39 +11,36 @@ export default class Feed extends Component {
         }
     };
 
+
+
     componentDidMount = () => {
         this.getPosts();
     }
 
     getPosts = async () => {
-        const res = await fetch(BACKEND_URL + '/api/posts');
-        if (!res.ok) {
-            throw new Error("Network response was not ok");
-        }
-        const data = await res.json();
-        console.log(data);
-        if (!data.status === 'ok') {
-            throw new Error("Issue with data");
-        } else {
+        const res = await fetch(BACKEND_URL + "/api/posts");
+
+            const data = await res.json();
+            console.log(data);
+            if (data.status === 'ok') {
             this.setState({
                 posts: data.posts
-            })
-        }
-    }
-
-    showPosts = () => {
-        return this.state.posts.map(p=> <Post key={p.id} post={p} />)
+            })}
     };
+
+        showPosts = () => {
+            return this.state.posts.map(p=><Post key={p.id} post={p} />)
+        };
 
 
     render() {
-        return (
-            <div>
-                <h1>My Feed</h1>
-                <main>
-                    { this.showPosts() }
-                </main>
-            </div>
+            return (
+                <div>
+                    <h1>My Feed</h1>
+                    <main className="container justify-items-center">
+                        {this.showPosts()}
+                    </main>
+                </div>
         );
     }
-}
+};
