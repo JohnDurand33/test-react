@@ -2,7 +2,14 @@ import { Component } from 'react'
 import Home from "./Home";
 import Navbar from "./Navbar";
 import Feed from './Feed';
+import News from './News';
 import Footer from './Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CreatePost from './CreatePost';
+
+//"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
+// "Routes" similar to block content syntax
+
 
 
 // rafc
@@ -22,18 +29,24 @@ class App extends Component {
 
     render() {
         return (
-        <div className="App">
-            <Navbar user={this.state.user} x='hi'/>
+            <BrowserRouter>
+                <div className="App">
+                    <Navbar user={this.state.user} x="hi" />
+                    <Home user={this.state.user} /> {/* HOME IS UNIQUE:  NOTICE IT IS NOT WRAPPED BY THE "ROUTES" COMPONENT!!!! */}
+                    <Routes>
+                        <Route path="/posts" element={<Feed />} />
+                        <Route path="/news" element={<News />} />
+                        <Route path="/feed" element={<Feed />} />
+                        <Route path="/posts/create" element={<CreatePost />} />
+                    </Routes>
 
-            <Home user={this.state.user} x='hi' />
-                
-            <Feed />
-                
-            <Footer />
+                    {/* <News /> */}
 
-            {/* <News user={this.state.user} x='hi'/> */}
+                    <Footer />
 
-        </div>
+                    {/* <News user={this.state.user} x='hi'/> */}
+                </div>
+            </BrowserRouter>
         );
     }
 }

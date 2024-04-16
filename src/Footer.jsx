@@ -12,22 +12,22 @@ const Footer = () => {
 
                     {/* <!-- Right --> */}
                     <div>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-facebook-f"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-twitter"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-google"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-linkedin"></i>
                         </a>
-                        <a href="" className="me-4 text-reset">
+                        <a href="/" className="me-4 text-reset">
                             <i className="fab fa-github"></i>
                         </a>
                     </div>
@@ -61,22 +61,22 @@ const Footer = () => {
                                     Products
                                 </h6>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Angular
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         React
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Vue
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Laravel
                                     </a>
                                 </p>
@@ -90,22 +90,22 @@ const Footer = () => {
                                     Useful links
                                 </h6>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Pricing
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Settings
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Orders
                                     </a>
                                 </p>
                                 <p>
-                                    <a href="#!" className="text-reset">
+                                    <a href="/" className="text-reset">
                                         Help
                                     </a>
                                 </p>

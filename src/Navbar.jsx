@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 // for big components ready to export, type rafce - it will automatically declare your components as exportable
 // your return statement should only return one object.  wrap your elements in a div, or use a fragment (RCT specific = <> <>)
 
@@ -10,9 +11,13 @@ const Navbar = ({user}) => {
                 data-bs-theme="dark"
             >
                 <div className="container-fluid">
-                    <a className="navbar-brand text-white" href="#">
+                    <Link
+                        className="nav-link active"
+                        aria-current="page"
+                        to="/"
+                    >
                         Navbar
-                    </a>
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -29,21 +34,62 @@ const Navbar = ({user}) => {
                         id="navbarNavAltMarkup"
                     >
                         <div className="navbar-nav">
-                            <a className="nav-link text-white" href="/posts/create">
-                                Create Post
-                            </a>
-                            <a className="nav-link text-white" href="/users">
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/"
+                            >
+                                Home
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/news"
+                            >
+                                News
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/feed"
+                            >
+                                Feed
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/posts/create"
+                            >
+                                Create A Post
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/users"
+                            >
                                 Users
-                            </a>
-                            <a className="nav-link text-white" href="/logout">
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/logout"
+                            >
                                 Log Out
-                            </a>
-                            <a className="nav-link text-white" href="/signup">
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/signup"
+                            >
                                 Sign Up
-                            </a>
-                            <a className="nav-link text-white" href="/login">
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/login"
+                            >
                                 Log In
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
