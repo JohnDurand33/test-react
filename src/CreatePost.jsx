@@ -7,6 +7,7 @@ export default class CreatePost extends Component {
             /* USE THE "name" attribute for each entry! */
         }
         const title = e.target.title.value;
+        const caption = e.target.caption.value;
     };
 
     render() {
