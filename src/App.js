@@ -6,7 +6,6 @@ import News from './News'
 import Footer from './Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CreatePost from './CreatePost'
-import SignUp from './SignUp'
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
 // "Routes" similar to block content syntax
@@ -38,7 +37,6 @@ class App extends Component {
                         <Route path='/news' element={<News />} />
                         <Route path='/feed' element={<Feed />} />
                         <Route path='/posts/create' element={<CreatePost />} />
-                        <Route path='/api/signup' element={<SignUp />} />
                     </Routes>
                     {/* <News /> */}
                     <Footer />
