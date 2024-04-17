@@ -6,9 +6,8 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 class CreatePost extends Component {
     handleClick = async (e) => {
         e.preventDefault();
-        {
-            /* USE THE "name" attribute for each entry! */
-        }
+        // eslint-disable-next-line
+        {/* USE THE "name" attribute for each entry! */ }
         const title = e.target.title.value;
         const caption = e.target.caption.value;
         const imgUrl = e.target.imgUrl.value;
@@ -19,6 +18,7 @@ class CreatePost extends Component {
             caption,
             user_id: 1
         }
+        // eslint-disable-next-line
         {/* HARDCODED USER_ID< WILL UPDATE THIS TOMORROW */ }
         const url = BACKEND_URL + '/api/posts/create'
         const options = {
