@@ -27,7 +27,7 @@ export default class News extends Component {
         return this.state.articles.map((a, index) => <Article key={index} article={a}/>)
     }
 
-	render(props) {
+	render() {
 		return (
 			<div>
 				<h1>News Page</h1>

@@ -33,7 +33,7 @@ export default class Article extends Component {
                     >
                         {article.description}
                     </p>
-                    <a id="url-link"href={article.url} target='_blank' className="btn btn-success" style={{maxWidth: "150px"}}>Full Story</a>
+                    <a id="url-link"href={article.url} target='' className="btn btn-success" style={{maxWidth: "150px"}}>Full Story</a>
                     <div class="card-footer m-0 text-body-secondary rounded-5 sticky-bottom">
                         <Moment id="p-footnote" fromNow={true}>{article.date_created}</Moment>
                     </div>

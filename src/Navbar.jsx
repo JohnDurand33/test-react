@@ -79,7 +79,7 @@ const Navbar = ({user}) => {
                             <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                to="/signup"
+                                to="api/signup"
                             >
                                 Sign Up
                             </Link>
