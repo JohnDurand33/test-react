@@ -1,34 +1,34 @@
-import React, { Component } from "react";
-import Post from "./Post";
+import React, { Component } from 'react'
+import Post from './Post'
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 export default class Feed extends Component {
     constructor() {
-        super();
+        super()
         this.state = {
             posts: [],
-        };
+        }
     }
 
     componentDidMount = () => {
-        this.getPosts();
-    };
+        this.getPosts()
+    }
 
     getPosts = async () => {
-        const res = await fetch(BACKEND_URL + "/api/posts");
+        const res = await fetch(BACKEND_URL + '/api/posts')
 
-        const data = await res.json();
-        console.log(data);
-        if (data.status === "ok") {
+        const data = await res.json()
+        console.log(data)
+        if (data.status === 'ok') {
             this.setState({
                 posts: data.posts,
-            });
+            })
         }
-    };
+    }
 
     showPosts = () => {
-        return this.state.posts.map((p) => <Post key={p.id} post={p} />);
-    };
+        return this.state.posts.map((p) => <Post key={p.id} post={p} />)
+    }
 
     render() {
         if (this.state.posts.length === 0) {
@@ -36,15 +36,16 @@ export default class Feed extends Component {
                 <div>
                     <h1>Loading...</h1>
                 </div>
-            );
+            )
         } else {
-        return (
-            <div>
-                <h1>My Feed</h1>
-                <main className="container justify-items-center">
-                    {this.showPosts()}
-                </main>
-            </div>
-        );
+            return (
+                <div>
+                    <h1>My Feed</h1>
+                    <main className='container justify-items-center'>
+                        {this.showPosts()}
+                    </main>
+                </div>
+            )
+        }
     }
-}}
+}

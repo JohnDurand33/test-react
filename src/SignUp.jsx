@@ -1,98 +1,61 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import './main.css';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-// get: async () => {
-//     const response = await fetch(`https://hotline-bling.glitch.me/api/contacts`, {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Access-Control-Allow-Origin': '*',
-//         }
-//     });
-//     if (!response.ok) {
-//         throw new Error('Failed to fetch data from the server')
-//     } return await response.json()
-// }, 
-
-
-
-
-export default class SignUp extends Component {
-    handleSubmit = async (e) => {
+class SignUp extends Component {
+    handleClick = async (e) => {
         e.preventDefault();
         // eslint-disable-next-line
         {/* USE THE "name" attribute for each entry! */ }
-        const username = e.target.username.value;
+        const name = e.target.name.value;
         const email = e.target.email.value;
-        const password = e.target.password.value
-        const confirmPassword = e.target.confirmPassword.value
+        const password = e.target.password.value;
 
         const body = {
-            username,
+            name,
             email,
-            password
+            password,
         }
 
+        console.log('body', body)
+        // eslint-disable-next-line
+        {/* HARDCODED USER_ID< WILL UPDATE THIS TOMORROW */ }
         const url = BACKEND_URL + '/api/signup'
-        console.log(url)
+
+        console.log('url', url)
+
         const options = {
-            method: "POST",
+            method: 'POST',
             headers: {
-                "Content-Type": 'application/json',
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify(body)
-        }
+            body: JSON.stringify(body),
+        };
 
-        if (password !== confirmPassword) {
-            // THROW AN ERROR
-            console.log('passwords do not match');
-            return
-        }
+        console.log(options)
 
-        const response = await fetch(url, options)
-
-        // const res = await fetch(url, options);
-        // const data = await res.json();
-        // console.log(data);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch data from the server')
-        } const data = await response.json()
+        const res = await fetch(url, options);
+        const data = await res.json();
         console.log(data);
 
     };
-
-    
 
     render() {
         return (
             <div>
                 <h1 className="text-center">Sign Up</h1>
-                <form className="col-3 mx-auto" onSubmit={this.handleSubmit}>
-                    <input
-                        className="form-control"
-                        name="username"
-                        placeholder="Username"
-                    />
-                    <input
-                        className="form-control"
-                        name="email"
-                        placeholder="Email"
-                    />
-                    <input
-                        className="form-control"
-                        name="password"
-                        placeholder="Password"
-                    />
-                    <input
-                        className="form-control"
-                        name="confirmPassword"
-                        placeholder="Confirm Your Password"
-                    />
+                <form className="col-3 mx-auto" onSubmit={this.handleClick}>
+                    <input className="form-control" type="text" name="name" placeholder="Name" />
+                    <input className="form-control" type="text" name="email" placeholder="Email" />
+                    <input className="form-control" type="password" name="password" placeholder="Password" />
+                    <input className="form-control" type="password" name="confirmPassword" placeholder="Confirm Password" />
                     <button className="btn btn-success mx-auto">Submit</button>
                 </form>
             </div>
         );
     }
 }
+
+
+export default SignUp;

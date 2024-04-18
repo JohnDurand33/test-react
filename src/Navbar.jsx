@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // for big components ready to export, type rafce - it will automatically declare your components as exportable
 // your return statement should only return one object.  wrap your elements in a div, or use a fragment (RCT specific = <> <>)
 
-const Navbar = ({user}) => {
+const Navbar = ({ user }) => {
     return (
         <>
             <nav
@@ -79,7 +79,7 @@ const Navbar = ({user}) => {
                             <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                to="api/signup"
+                                to="/signup"
                             >
                                 Sign Up
                             </Link>

@@ -6,6 +6,8 @@ import News from './News'
 import Footer from './Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CreatePost from './CreatePost'
+import SignUp from './SignUp'
+
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
 // "Routes" similar to block content syntax
@@ -29,18 +31,16 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className='App'>
-                    <Navbar user={this.state.user} x='hi' />
-                    <Home user={this.state.user} />{' '}
-                    {/* HOME IS UNIQUE:  NOTICE IT IS NOT WRAPPED BY THE "ROUTES" COMPONENT!!!! */}
+                    <Navbar user={this.state.user} />
+                    <Home user={this.state.user} />
                     <Routes>
                         <Route path='/posts' element={<Feed />} />
                         <Route path='/news' element={<News />} />
                         <Route path='/feed' element={<Feed />} />
                         <Route path='/posts/create' element={<CreatePost />} />
+                        <Route path='/signup' element={<SignUp />}/>
                     </Routes>
-                    {/* <News /> */}
                     <Footer />
-                    {/* <News user={this.state.user} x='hi'/> */}
                 </div>
             </BrowserRouter>
         )

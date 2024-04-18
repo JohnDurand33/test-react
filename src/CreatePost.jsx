@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -25,6 +25,7 @@ class CreatePost extends Component {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "*",
             },
             body: JSON.stringify(body),
         };
@@ -32,8 +33,6 @@ class CreatePost extends Component {
         const res = await fetch(url, options);
         const data = await res.json();
         console.log(data);
-
-        this.props.navigate('/feed');
     };
 
     render() {
@@ -53,10 +52,3 @@ class CreatePost extends Component {
 
 export default CreatePost;
 
-function CreatePostWithNavigation() {
-    const navigate = useNavigate();
-
-    return <CreatePost navigate={navigate} />;
-}
-
-export { CreatePostWithNavigation };

@@ -15,7 +15,7 @@
     },
     "rules": {
         "react/react-in-jsx-scope": "on",
-        "react/prop-types": "off"
+        "react/prop-types": "on"
     },
     "env": {
         "browser": true,

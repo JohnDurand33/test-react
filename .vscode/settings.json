@@ -1,27 +1,16 @@
 {
-    "previewjs.codelens": true,
-    "editor.codeActionsOnSave": 
-    {
+    "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "always"
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "files.watcherExclude": 
-    {
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true
-    },
-    "workbench.colorTheme": "Visual Studio Dark",
     "editor.minimap.enabled": true,
     "workbench.iconTheme": "material-icon-theme",
     "extensions.ignoreRecommendations": false,
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnType": false, // required
     "editor.formatOnPaste": true, // optional
     "editor.formatOnSave": true, // optional
     "editor.formatOnSaveMode": "file", // required to format on save
     "files.autoSave": "onFocusChange", // optional but recommended
-    "vs-code-prettier-eslint.prettierLast": false,
 }
-
