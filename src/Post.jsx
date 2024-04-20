@@ -43,9 +43,7 @@ class Post extends Component {
         const data = await res.json();
         console.log(data);
         if (data.status === 'ok') {
-            //
-        } else {
-            this.setState({ liked: currentState })
+            this.setState({ liked: !currentState })
         }
     };
 
