@@ -36,8 +36,8 @@ class Post extends Component {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${this.props.user.token}`
             },
-            body: JSON.stringify({ user_id: 1 }),
         });
 
         const data = await res.json();

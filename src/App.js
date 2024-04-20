@@ -7,6 +7,7 @@ import Footer from './Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import CreatePost from './CreatePost'
 import SignUp from './SignUp'
+import Login from './Login'
 
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
@@ -20,12 +21,17 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            user: {
-                username: 'John',
-                email: 'john@ct.com',
-            },
+            user: {}
         }
-    }
+    };
+
+    logMeIn = (user) => {
+        this.setState({
+            user:user
+        })
+        console.log(`current user id: ${user.id}`)
+    };
+
 
     render() {
         return (
@@ -34,11 +40,12 @@ class App extends Component {
                     <Navbar user={this.state.user} />
                     <Home user={this.state.user} />
                     <Routes>
-                        <Route path='/posts' element={<Feed />} />
+                        <Route path='/posts' element={<Feed user={this.state.user}/>} />
                         <Route path='/news' element={<News />} />
-                        <Route path='/feed' element={<Feed />} />
-                        <Route path='/posts/create' element={<CreatePost />} />
+                        <Route path='/feed' element={<Feed user={this.state.user}/>} />
+                        <Route path='/posts/create' element={<CreatePost user={this.state.user}/>} />
                         <Route path='/signup' element={<SignUp />}/>
+                        <Route path='/login' element={<Login logMeIn={this.logMeIn} />}/>
                     </Routes>
                     <Footer />
                 </div>

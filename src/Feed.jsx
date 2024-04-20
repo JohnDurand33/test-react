@@ -18,7 +18,7 @@ export default class Feed extends Component {
         const res = await fetch(BACKEND_URL + '/api/posts')
 
         const data = await res.json()
-        console.log(data)
+
         if (data.status === 'ok') {
             this.setState({
                 posts: data.posts,
@@ -27,7 +27,7 @@ export default class Feed extends Component {
     }
 
     showPosts = () => {
-        return this.state.posts.map((p) => <Post key={p.id} post={p} />)
+        return this.state.posts.map((p) => <Post key={p.id} post={p} user={this.props.user} />)
     }
 
     render() {

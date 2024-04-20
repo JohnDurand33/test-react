@@ -23,7 +23,7 @@ export default class Home extends Component {
     constructor() {
         //SETS UP THE INITIAL STATE OF YOUR METHOD (LIKE THE INIT METHOD)
         super(); //  <- ALWAYS RUN PARENTS CONSTRUCTOR
-        console.log("Constructing");
+        // console.log("Constructing"); good to add these to Constructor and after mounting to monitor when things happen
         this.state = {
             // STORES VARIABLES WE ARE KEEPING TRACK OF
             //EXAMPLE
@@ -35,7 +35,7 @@ export default class Home extends Component {
     componentDidMount() {
         // default does nothing, but we can use it to do additional things after first render (Look at life cycle for reference!)
         //
-        console.log("Mounted");
+        // console.log("Mounted"); see line 26
     }
     //Use a Setterfunction, DO NOT TRY TO MUTATE ANY STATE DIRECTLY!!!!!!!!!!!!!  TREAT STATES AS IMMUTABLE!!!!!!
     handleClick = () => {
@@ -46,14 +46,14 @@ export default class Home extends Component {
         // this.setState((prevState) => ({
         //     count: prevState.count + 1,
         // }));   
-        
+
         // -> 'Above is a safer version of uncommented method above commented one above, because it keeps the function from recalling the initial value'.
 
-        console.log(this.state);
+        // console.log(this.state); test for counter
     };
 
     render() {
-        console.log("Rendering");
+        // console.log("Rendering");  see line 26
         return (
             <div>
                 <h1>This is the Home Page!</h1>
