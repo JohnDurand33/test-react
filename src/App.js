@@ -1,14 +1,13 @@
 import { Component } from 'react'
-import Home from './Home'
-import Navbar from './Navbar'
-import Feed from './Feed'
-import News from './News'
-import Footer from './Footer'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CreatePost from './CreatePost'
-import SignUp from './SignUp'
+import Feed from './Feed'
+import Footer from './Footer'
+import Home from './Home'
 import Login from './Login'
-
+import Navbar from './Navbar'
+import News from './News'
+import SignUp from './SignUp'
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
 // "Routes" similar to block content syntax
@@ -21,7 +20,8 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            user: {}
+            user: {},
+            users:[]
         }
     };
 
@@ -30,6 +30,9 @@ class App extends Component {
             user:user
         })
         console.log(`current user id: ${user.id}`)
+    };
+
+    componentDidMount = () => {
     };
 
 
@@ -45,13 +48,12 @@ class App extends Component {
                         <Route path='/feed' element={<Feed user={this.state.user}/>} />
                         <Route path='/posts/create' element={<CreatePost user={this.state.user}/>} />
                         <Route path='/signup' element={<SignUp />}/>
-                        <Route path='/login' element={<Login logMeIn={this.logMeIn} />}/>
+                        <Route path='/login' element={<Login logMeIn={this.logMeIn}/>}/>
                     </Routes>
                     <Footer />
                 </div>
             </BrowserRouter>
         )
-    }
-}
+    }}
 
 export default App
