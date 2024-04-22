@@ -29,7 +29,7 @@ class App extends Component {
         this.setState({
             user:user
         })
-        console.log(`current user id: ${user.id}`)
+        console.log(`User '${user.username}' was successfully logged in!`)
     };
 
     componentDidMount = () => {

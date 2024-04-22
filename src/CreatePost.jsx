@@ -15,10 +15,10 @@ class CreatePost extends Component {
         const body = {
             title,
             img_url: imgUrl,
-            caption,
+            caption
             // user_id: this.props.user.id - insecure, so pass current user props to this component from App.js, and put token into the header (below)
         }
-
+        console.log('fe-body defined successfull no fetch yet')
         const url = BACKEND_URL + '/api/posts/create'
         const options = {
             method: 'POST',
@@ -28,11 +28,11 @@ class CreatePost extends Component {
             },
             body: JSON.stringify(body),
         };
-
+        console.log('fe-request defined successfull no fetch yet')
         const res = await fetch(url, options);
         const data = await res.json();
         if (data.status === 'ok') {
-            console.log(data);
+            console.log(data, 'Post created successfully');
         } else {
             console.log('Issue with CreatePost.jsx')
         }

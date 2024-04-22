@@ -27,7 +27,7 @@ export default class Feed extends Component {
     }
 
     showPosts = () => {
-        return this.state.posts.map((p) => <Post key={p.id} post={p} />)
+        return this.state.posts.map((p) => <Post key={p.id} post={p} user={this.props.user} />)
     }
 
     render() {

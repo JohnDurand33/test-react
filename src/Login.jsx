@@ -22,13 +22,13 @@ class Login extends Component {
 
         const request = await fetch(url, options);
         const data = await request.json();
-        console.log(data);
 
         if (data.status === 'ok') {
             this.props.logMeIn(data.user)
+            console.log(data)
+        } else {
+            console.log('Login failed')
         }
-        console.log(data.user)
-        console.log(`User was successfully logged in!`)
 
     };
 

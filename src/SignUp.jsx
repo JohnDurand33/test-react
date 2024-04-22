@@ -6,7 +6,6 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 class SignUp extends Component {
     handleClick = async (e) => {
         e.preventDefault();
-
         const username = e.target.username.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
@@ -34,8 +33,9 @@ class SignUp extends Component {
         }
 
         const request = await fetch(url, options);
+        console.log(`request: ${request}`);
         const data = await request.json();
-        console.log(data);
+        console.log(`data: ${data}`);
     };
 
     render() {
@@ -53,6 +53,7 @@ class SignUp extends Component {
         );
     }
 }
+
 
 
 export default SignUp;

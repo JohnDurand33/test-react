@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import Moment from 'react-moment';
 import './main.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -8,11 +8,12 @@ class Post extends Component {
     constructor() {
         super();
         this.state = {
-            liked: true
+            liked: false
         };
     }
 
     componentDidMount() {
+        console.log(this.props.post)
         if (this.props.post) {
             this.setState({ liked: this.props.post.liked })
         }
@@ -38,7 +39,8 @@ class Post extends Component {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${this.props.user.token}`
             },
-        });
+        },
+        );
 
         const data = await res.json();
         console.log(data);
@@ -50,6 +52,7 @@ class Post extends Component {
     render() {
 
         const p = this.props.post;
+        console.log(p)
         return (
             <div className="card mx-auto mb-5" style={{ width: '18rem' }}>
                 <img
