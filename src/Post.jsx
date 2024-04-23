@@ -20,11 +20,6 @@ class Post extends Component {
     }
 
     handleClick = async (type) => {
-        const currentState = this.state.liked;
-        this.setState({
-            liked: !currentState
-        })
-
 
         let url;
         if (type === 'like') {
@@ -39,20 +34,28 @@ class Post extends Component {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${this.props.user.token}`
             },
-        },
-        );
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        } else {
+            console.log('Success:', res.status, res.body);
+            const currentState = this.state.liked;
+            this.setState({
+                liked: !currentState
+            })
+        }
 
         const data = await res.json();
-        console.log(data);
+
         if (data.status === 'ok') {
-            this.setState({ liked: !currentState })
+            console.log(`data updated successfully! data: ${data}`);
         }
     };
 
     render() {
 
         const p = this.props.post;
-        console.log(p)
         return (
             <div className="card mx-auto mb-5" style={{ width: '18rem' }}>
                 <img

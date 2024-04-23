@@ -5,6 +5,7 @@ import Feed from './Feed'
 import Footer from './Footer'
 import Home from './Home'
 import Login from './Login'
+import Logout from './Logout'
 import Navbar from './Navbar'
 import News from './News'
 import SignUp from './SignUp'
@@ -32,6 +33,11 @@ class App extends Component {
         console.log(`User '${user.username}' was successfully logged in!`)
     };
 
+    logMeOut = () => {
+        this.setState({ user: null });
+        console.log(`User was successfully logged out!`)
+    };
+
     componentDidMount = () => {
     };
 
@@ -49,6 +55,7 @@ class App extends Component {
                         <Route path='/posts/create' element={<CreatePost user={this.state.user}/>} />
                         <Route path='/signup' element={<SignUp />}/>
                         <Route path='/login' element={<Login logMeIn={this.logMeIn}/>}/>
+                        <Route path='/logout' element={<Logout logMeOut={this.logMeOut} user={this.state.user}/>}/>
                     </Routes>
                     <Footer />
                 </div>

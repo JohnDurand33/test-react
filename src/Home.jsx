@@ -54,13 +54,23 @@ export default class Home extends Component {
 
     render() {
         // console.log("Rendering");  see line 26
-        return (
-            <div>
-                <h1>This is the Home Page!</h1>
-                {this.state.count}
-                {this.props.user.username}
-                <button onClick={this.handleClick}>+</button>
-            </div> // handleClick is a HELPER FUNCTION.  you could have just put the function inside the div -> onClick variable
-        );
-    }
+        if (this.props.user !== null) {
+            return (
+                <div>
+                    <h1>This is the Home Page!</h1>
+                    {this.state.count}
+                    {this.props.user.username}
+                    <button onClick={this.handleClick}>+</button>
+                </div>)
+        } else {
+            return (
+                <div>
+                    <h1>This is the Home Page!</h1>
+                    {this.state.count}
+                    <button onClick={this.handleClick}>+</button>
+                </div>)
+        }
+
+    } // handleClick is a HELPER FUNCTION.  you could have just put the function inside the div -> onClick variable
 }
+
