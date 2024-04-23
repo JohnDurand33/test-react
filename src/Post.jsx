@@ -67,10 +67,14 @@ class Post extends Component {
                     <h5 className="card-title m-1">{p.title}</h5>
                     <h6 className="card-subtitle m-1 text-body-secondary">{p.author}</h6>
                     <p className="card-text m-1 rounded-4">{p.caption}</p>
-                    {this.state.liked ?
-                        <AiFillHeart onClick={() => this.handleClick('unlike')} />
-                        :
-                        <AiOutlineHeart onClick={() => this.handleClick('like')} />
+                    {
+                        this.props.user.token ?
+                            this.state.liked ?
+                                <AiFillHeart onClick={() => this.handleClick('unlike')} />
+                                :
+                                <AiOutlineHeart onClick={() => this.handleClick('like')} />
+                            :
+                            <></>
                     }
                     <div
                         class="card-footer m-0 text-body-secondary rounded-5"

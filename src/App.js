@@ -47,8 +47,8 @@ class App extends Component {
             <BrowserRouter>
                 <div className='App'>
                     <Navbar user={this.state.user} />
-                    <Home user={this.state.user} />
                     <Routes>
+                        <Route path='/' element={<Home user={this.state.user}/>} />
                         <Route path='/posts' element={<Feed user={this.state.user}/>} />
                         <Route path='/news' element={<News />} />
                         <Route path='/feed' element={<Feed user={this.state.user}/>} />

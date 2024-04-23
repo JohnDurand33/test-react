@@ -15,7 +15,16 @@ export default class Feed extends Component {
     }
 
     getPosts = async () => {
-        const res = await fetch(BACKEND_URL + '/api/posts')
+        let res
+        if (this.props.user.token) {
+            res = await fetch(BACKEND_URL + '/api/posts', {
+                headers: {
+                    Authorization: `Bearer ${this.props.user.token}`
+                }
+            });
+        } else {
+            res = await fetch(BACKEND_URL + '/api/posts')
+        }
 
         const data = await res.json()
         console.log(data)
