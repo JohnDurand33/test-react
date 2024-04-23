@@ -28,7 +28,7 @@ class CreatePost extends Component {
             },
             body: JSON.stringify(body),
         };
-        console.log('fe-request defined successfull no fetch yet')
+        console.log(`fe-request defined successfull no fetch yet, options: ${options}`)
         const res = await fetch(url, options);
         const data = await res.json();
         if (data.status === 'ok') {
