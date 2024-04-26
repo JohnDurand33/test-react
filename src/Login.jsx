@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './main.css';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
-class Login extends Component {
+const Login = ({ logMeIn }) => {
+    const redirect = useNavigate()
 
-    handleClick = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const username = e.target.username.value;
@@ -24,27 +26,26 @@ class Login extends Component {
         const data = await request.json();
 
         if (data.status === 'ok') {
-            this.props.logMeIn(data.user)
-            console.log(data)
+            logMeIn(data.user)
+            console.log('User was successfully logged in!')
+            redirect('/posts')
         } else {
             console.log('Login failed')
         }
 
-    };
 
-    render() {
-        return (
-            <div>
-                <h1 className="text-center">Login</h1>
-                <form className="col-3 mx-auto" onSubmit={this.handleClick}>
-                    <input className="form-control" type="text" name="username" placeholder="Username" />
-                    <input className="form-control" type="current-password" name="password" placeholder="Password" />
-                    <button className="btn btn-success mx-auto">Submit</button>
-                </form>
-            </div>
-        );
-    }
+
+    };
+    return (
+        <div>
+            <h1 className="text-center">Login</h1>
+            <form className="col-3 mx-auto" onSubmit={handleSubmit}>
+                <input className="form-control" type="text" name="username" placeholder="Username" />
+                <input className="form-control" type="current-password" name="password" placeholder="Password" />
+                <button className="btn btn-success mx-auto">Submit</button>
+            </form>
+        </div>
+    );
 }
 
-
-export default Login;
+export default Login

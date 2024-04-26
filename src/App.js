@@ -8,6 +8,7 @@ import Login from './Login'
 import Logout from './Logout'
 import Navbar from './Navbar'
 import News from './News'
+import NewsFunction from './NewsFunction'
 import SignUp from './SignUp'
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
@@ -22,25 +23,23 @@ class App extends Component {
         super()
         this.state = {
             user: {},
-            users:[]
+            users: [],
         }
-    };
+    }
 
     logMeIn = (user) => {
         this.setState({
-            user:user
+            user: user,
         })
         console.log(`User '${user.username}' was successfully logged in!`)
-    };
+    }
 
     logMeOut = () => {
-        this.setState({ user: null });
+        this.setState({ user: null })
         console.log(`User was successfully logged out!`)
-    };
+    }
 
-    componentDidMount = () => {
-    };
-
+    componentDidMount = () => {}
 
     render() {
         return (
@@ -48,19 +47,40 @@ class App extends Component {
                 <div className='App'>
                     <Navbar user={this.state.user} />
                     <Routes>
-                        <Route path='/' element={<Home user={this.state.user}/>} />
-                        <Route path='/posts' element={<Feed user={this.state.user}/>} />
+                        <Route
+                            path='/'
+                            element={<Home user={this.state.user} />}
+                        />
+                        <Route
+                            path='/posts'
+                            element={<Feed user={this.state.user} />}
+                        />
                         <Route path='/news' element={<News />} />
-                        <Route path='/feed' element={<Feed user={this.state.user}/>} />
-                        <Route path='/posts/create' element={<CreatePost user={this.state.user}/>} />
-                        <Route path='/signup' element={<SignUp />}/>
-                        <Route path='/login' element={<Login logMeIn={this.logMeIn}/>}/>
-                        <Route path='/logout' element={<Logout logMeOut={this.logMeOut} user={this.state.user}/>}/>
+                        <Route path='/news2' element={<NewsFunction />} />
+                        <Route
+                            path='/posts/create'
+                            element={<CreatePost user={this.state.user} />}
+                        />
+                        <Route path='/signup' element={<SignUp />} />
+                        <Route
+                            path='/login'
+                            element={<Login logMeIn={this.logMeIn} />}
+                        />
+                        <Route
+                            path='/logout'
+                            element={
+                                <Logout
+                                    logMeOut={this.logMeOut}
+                                    user={this.state.user}
+                                />
+                            }
+                        />
                     </Routes>
                     <Footer />
                 </div>
             </BrowserRouter>
         )
-    }}
+    }
+}
 
 export default App

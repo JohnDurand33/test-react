@@ -6,14 +6,14 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 class Logout extends Component {
 
     handleClick = async (e) => {
+        const { token } = this.props.user;
         e.preventDefault();
-
         const url = BACKEND_URL + '/api/logout'
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${this.props.user.token}`
+                Authorization: `Bearer ${token}`
             },
         }
 
@@ -21,8 +21,7 @@ class Logout extends Component {
         const data = await request.json();
 
         if (data.status === 'ok') {
-            console.log(`Logging Out User'`)
-            this.props.logMeOut()
+            this.props.logMeOut(token)
             console.log('data:', data)
         } else {
             console.log('Logout failed')
@@ -30,13 +29,15 @@ class Logout extends Component {
 
     };
     render() {
+
         return (
             <>
                 <button onClick={this.handleClick} className="btn btn-success m-auto">Log Out</button>
             </>
         );
     }
-};
+
+}
 
 
 export default Logout;

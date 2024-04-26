@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';      //only one default export syntax per file (i.e. import App (usually best practive is App) from './App', instead you need to put it in curly braces)
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import AppFunction from './AppFunction' //only one default export syntax per file (i.e. import App (usually best practive is App) from './App', instead you need to put it in curly braces)
 
 /* eslint-disable */
 // prettier-ignore
@@ -12,9 +12,9 @@ const options = {
 
 export { options }
 
-const root = ReactDOM.createRoot(document.getElementById("root")); // Need to append to actually render
+const root = ReactDOM.createRoot(document.getElementById('root')) // Need to append to actually render
 root.render(
     <React.StrictMode>
-    <App />
-	</React.StrictMode>
-);
+        <AppFunction />
+    </React.StrictMode>,
+)

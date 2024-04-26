@@ -51,7 +51,14 @@ const Navbar = () => {
                             <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                to="/feed"
+                                to="/news2"
+                            >
+                                News2
+                            </Link>
+                            <Link
+                                className="nav-link active"
+                                aria-current="page"
+                                to="/posts"
                             >
                                 Feed
                             </Link>

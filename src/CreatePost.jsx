@@ -1,10 +1,17 @@
 
 import React, { Component } from 'react';
-
+import { Navigate } from 'react-router-dom';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 class CreatePost extends Component {
+    constructor() {
+        super();
+        this.state = {
+            redirect: false
+        }
+    }
+
     handleClick = async (e) => {
         e.preventDefault();
 
@@ -41,9 +48,14 @@ class CreatePost extends Component {
         } else {
             console.log('Issue with CreatePost.jsx')
         }
+
+        this.setState({ redirect: true });
     };
 
     render() {
+        if (this.state.redirect) {
+            return <Navigate to='/posts' />
+        }
         return (
             <div>
                 <h1 className="text-center">Create Post</h1>

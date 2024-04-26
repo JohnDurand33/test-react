@@ -7,7 +7,7 @@ export default class Article extends Component {
         return (
             <div
                 className="card mx-auto mb-5 d-flex flex-column"
-                style={{ width: "18rem", height: "100%", overflow: "hidden", justifyContent:"space-between" }}
+                style={{ width: "18rem", height: "100%", overflow: "hidden", justifyContent: "space-between" }}
             >
                 <img
                     src={article.urlToImage ?? "https://placeholder.com/150"}
@@ -33,8 +33,8 @@ export default class Article extends Component {
                     >
                         {article.description}
                     </p>
-                    <a id="url-link"href={article.url} target='' className="btn btn-success" style={{maxWidth: "150px"}}>Full Story</a>
-                    <div class="card-footer m-0 text-body-secondary rounded-5 sticky-bottom">
+                    <a id="url-link" href={article.url} target='' className="btn btn-success" style={{ maxWidth: "150px" }}>Full Story</a>
+                    <div className="card-footer m-0 text-body-secondary rounded-5 sticky-bottom">
                         <Moment id="p-footnote" fromNow={true}>{article.date_created}</Moment>
                     </div>
                 </div>
