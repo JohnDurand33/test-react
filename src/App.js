@@ -9,6 +9,8 @@ import Logout from './Logout'
 import Navbar from './Navbar'
 import News from './News'
 import NewsFunction from './NewsFunction'
+import Product from './Product'
+import Shop from './Shop'
 import SignUp from './SignUp'
 
 //"Browser Router" is a wrapper that wraps all routes that need it in the App / main file (here)
@@ -56,6 +58,11 @@ class App extends Component {
                             element={<Feed user={this.state.user} />}
                         />
                         <Route path='/news' element={<News />} />
+                        <Route
+                            path='/shop'
+                            element={<Shop user={this.state.user} />}
+                        />
+                        <Route path='/product' element={<Product />} />
                         <Route path='/news2' element={<NewsFunction />} />
                         <Route
                             path='/posts/create'

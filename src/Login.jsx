@@ -27,8 +27,8 @@ const Login = ({ logMeIn }) => {
 
         if (data.status === 'ok') {
             logMeIn(data.user)
-            console.log('User was successfully logged in!')
-            redirect('/posts')
+            console.log('Login successful', data.user)
+            redirect('/shop')
         } else {
             console.log('Login failed')
         }
