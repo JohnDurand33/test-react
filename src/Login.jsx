@@ -5,9 +5,11 @@ import './main.css';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Login = ({ logMeIn }) => {
-    const redirect = useNavigate()
+
+    const redirect = useNavigate('/shop')
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         const username = e.target.username.value;
@@ -28,12 +30,11 @@ const Login = ({ logMeIn }) => {
         if (data.status === 'ok') {
             logMeIn(data.user)
             console.log('Login successful', data.user)
-            redirect('/shop')
         } else {
             console.log('Login failed')
         }
 
-
+        redirect('/shop')
 
     };
     return (

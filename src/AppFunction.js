@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Cart from './Cart'
 import CreatePost from './CreatePost'
 import Feed from './Feed'
 import Footer from './Footer'
@@ -11,6 +12,11 @@ import NewsFunction from './NewsFunction'
 import Shop from './Shop'
 import SignUp from './SignUp'
 import SinglePost from './SinglePost'
+
+// These functions allow you to add / remove dictionaries to loaclStorage
+// localStorage.getItem()
+// localStorage.setItem()
+// localStorage.removeItem()
 
 const AppFunction = () => {
     const [user, setUser] = useState({})
@@ -30,6 +36,17 @@ const AppFunction = () => {
     const addToCart = (product) => {
         const newCart = [...cart, product]
         setCart(newCart)
+    }
+
+    const removeFromCart = (product) => {
+        const copy = [...cart]
+        for (let i = cart.length - 1; i >= 0; i--) {
+            if (product.id === cart[i].id) {
+                copy.splice(i, 1)
+                break
+            }
+        }
+        setCart(copy)
     }
 
     const getTotal = () => {
@@ -98,10 +115,16 @@ const AppFunction = () => {
                         path='/login'
                         element={<Login logMeIn={logMeIn} user={user} />}
                     />
-                    {/* <Route
-                        path='/logout'
-                        element={<Logout logMeOut={logMeOut} user={user} />}
-                    /> */}
+                    <Route
+                        path='cart'
+                        element={
+                            <Cart
+                                user={user}
+                                cart={cart}
+                                addToCart={addToCart}
+                                removeFromCart={removeFromCart}
+                            />
+                        }></Route>
                 </Routes>
                 <Footer />
             </div>

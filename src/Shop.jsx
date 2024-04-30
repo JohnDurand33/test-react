@@ -27,7 +27,7 @@ const Shop = ({ user, addToCart }) => {
     return (
         <div>
             <h1>The Shop</h1>
-            <main className='container justify-items-center'>
+            <main className='container justify-content-center row'>
                 {showPosts()}
             </main>
         </div>
