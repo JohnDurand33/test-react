@@ -12,6 +12,7 @@ import NewsFunction from './NewsFunction'
 import Shop from './Shop'
 import SignUp from './SignUp'
 import SinglePost from './SinglePost'
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
 // These functions allow you to add / remove dictionaries to loaclStorage
 // localStorage.getItem()
@@ -19,18 +20,23 @@ import SinglePost from './SinglePost'
 // localStorage.removeItem()
 
 const AppFunction = () => {
-    const [user, setUser] = useState({})
+    const getUserFromLS = () => {
+        const foundUser = localStorage.getItem('user1')
+        if (foundUser) {
+            return JSON.parse(foundUser)
+        } else return {}
+    }
+    const [user, setUser] = useState(getUserFromLS())
     const [cart, setCart] = useState([])
-
-    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
 
     const logMeIn = (user) => {
         setUser(user)
-        console.log(user)
+        localStorage.setItem('user1', JSON.stringify(user))
     }
 
     const logMeOut = () => {
         setUser({})
+        localStorage.removeItem('user1')
     }
 
     const addToCart = (product) => {
